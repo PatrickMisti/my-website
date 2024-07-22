@@ -1,0 +1,58 @@
+
+/*************************************Global Styling************************************/
+
+@mixin layout-theme() {
+  @include section-style();
+  $footer-height: 25px;
+
+  body {
+    height: 100dvh;
+    margin: 0;
+  }
+
+  .layout {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: var(--mat-toolbar-standard-height) auto;
+    grid-template-areas:
+    "header"
+    "content";
+
+    .header {
+      grid-area: header;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    .content {
+      grid-area: content;
+      overflow-y: auto;
+    }
+    footer {
+      grid-area: footer;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .layout {
+      grid-template-rows: var(--mat-toolbar-mobile-height) auto;
+      grid-template-areas:
+      "header"
+      "content";
+    }
+  }
+}
+
+@mixin section-style() {
+  .first-section {
+    //min-height: calc(100dvh - var(--mat-toolbar-standard-height));
+    width: 100%;
+    height: 100%;
+  }
+
+  section {
+    height: 100%;
+  }
+}

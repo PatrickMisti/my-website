@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as material;
+@use "styling/m3-theme" as theme;
+@use "module.style" as style;
+@use "sass:map" as map;
+
+@include material.core();
+
+html {
+  @include style.layout-theme();
+  body {
+    @include material.all-component-themes(theme.$light-theme);
+
+
+
+    &.dark {
+      @include material.all-component-colors(theme.$dark-theme);
+      @include material.all-component-typographies(theme.$dark-theme);
+
+      @include style.layout-theme();
+    }
+  }
+}
+/*************************************Theming*******************************************/
